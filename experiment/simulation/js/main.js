@@ -263,7 +263,24 @@
                 chartInstance = new Chart(ctx, {
                     type: 'scatter',
                     data: { datasets },
-                    options: { responsive: true }
+                    options: {
+                        scales: {
+                            x: {
+                                type: 'linear',
+                                position: 'bottom',
+                                title: {
+                                    display: true,
+                                    text: 'Study Hours'
+                                }
+                            },
+                            y: {
+                                title: {
+                                    display: true,
+                                    text: 'Scores'
+                                }
+                            }
+                        }
+                    }
                 });
 
                 if (outliers.length > 0) {
