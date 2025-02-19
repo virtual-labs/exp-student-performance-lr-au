@@ -56,7 +56,9 @@ function handleFileUpload(event) {
         csvUploadMessage.style.display = 'none';
         return;
     }
-
+    cleanDataSets();
+    splitData();
+    predictAndPlot();
 
     csvUploadMessage.style.display = 'block';
     csvUploadMessage.textContent = '✅ CSV file uploaded!';
@@ -92,9 +94,9 @@ function parseCSV(csv) {
         loadDataset();
         logActivity("📁CSV file loaded successfully. Missing values removed.");
         plotManualEntryGraph(studyHours, scores);
-            document.getElementById('predictBtn').style.display = 'none';
-            document.getElementById('splitDataBtn').style.display = 'none';
-            document.getElementById('dataCleanBtn').style.display = 'block';
+        document.getElementById('predictBtn').style.display = 'none';
+        document.getElementById('splitDataBtn').style.display = 'none';
+        document.getElementById('dataCleanBtn').style.display = 'block';
         const manualContainer = document.querySelector('.manual-contaner');
 
         if (manualContainer) {
@@ -179,12 +181,12 @@ function splitData() {
     testScores = testData.map(d => d.score);
     plotGraph(trainHours, trainScores, testHours, testScores);
     logActivity(`✂️Split data into Training (${trainData.length} points) and Testing (${testData.length} points).`);
-     document.getElementById('predictBtn').style.display = 'block';
+    document.getElementById('predictBtn').style.display = 'block';
     document.getElementById('splitDataBtn').style.display = 'none';
     document.getElementById('dataCleanBtn').style.display = 'none';
-    
-    
-    
+
+
+
 }
 
 function getPercentile(arr, percentile) {
