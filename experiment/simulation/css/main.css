@@ -100,5 +100,9 @@ body {
 .manual-contaner{
     bottom: 5px;
 }
-
+.small-text {
+    font-size: 12px;
+    line-height: 1.2;
+   
+  }
 
