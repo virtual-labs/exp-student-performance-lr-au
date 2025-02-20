@@ -56,10 +56,6 @@ function handleFileUpload(event) {
         csvUploadMessage.style.display = 'none';
         return;
     }
-    cleanDataSets();
-    splitData();
-    predictAndPlot();
-
     csvUploadMessage.style.display = 'block';
     csvUploadMessage.textContent = '✅ CSV file uploaded!';
 
