@@ -216,7 +216,7 @@ function predictManualEntry() {
 
     loadDataset();
     updateStatistics();
-    plotManualEntryGraph(studyHours, scores, predictions);
+    plotManualEntryGraphHour(studyHours, scores, predictions);
 
     logActivity(`Manual Entry: ${manualHours} study hours -> Predicted Score Calculation: 
                  (slope: ${slope.toFixed(2)} * ${manualHours}) + intercept: ${intercept.toFixed(2)} 
@@ -225,6 +225,57 @@ function predictManualEntry() {
     logActivity(`RMSE (Root Mean Squared Error): ${rmse.toFixed(2)}`);
 
 
+}
+function plotManualEntryGraphHour(studyHours, actualScores, predictions = []) {
+    const ctx = document.getElementById('predictionChart').getContext('2d');
+
+    // Destroy existing chart instance if present to prevent multiple layers
+    if (chartInstance) {
+        chartInstance.destroy();
+    }
+
+    chartInstance = new Chart(ctx, {
+        type: 'scatter',
+        data: {
+            datasets: [
+                {
+                    label: 'Actual Data',
+                    data: studyHours.map((h, i) => ({ x: h, y: actualScores[i] })),
+                    backgroundColor: 'blue',
+                    pointRadius: 5
+                },
+                {
+                    label: 'Regression Line',
+                    data: predictions,
+                    borderColor: 'red',
+                    backgroundColor: 'red',
+                    showLine: true,
+                    fill: false,
+                    pointRadius: 0,
+                    borderWidth: 2
+                }
+            ]
+        },
+        options: {
+            scales: {
+                x: {
+                    type: 'linear',
+                    position: 'bottom',
+                    title: {
+                        display: true,
+                        text: 'Study Hours'
+                    }
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: 'Scores'
+                    }
+                }
+            }
+        }
+    });
+ 
 }
 
 function plotManualEntryGraph(studyHours, actualScores, predictions = []) {
