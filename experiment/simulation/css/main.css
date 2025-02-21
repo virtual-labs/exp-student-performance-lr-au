@@ -101,6 +101,7 @@ body {
     bottom: 5px;
 }
 .small-text {
+    position:relative;
     font-size: 12px;
     line-height: 1.2;
    
