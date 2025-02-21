@@ -193,7 +193,7 @@ function getPercentile(arr, percentile) {
 
 function predictManualEntry() {
     const manualHours = parseFloat(document.getElementById('manualHours').value);
-    if (isNaN(manualHours) || manualHours < 1 || manualHours > 50) {
+    if (isNaN(manualHours) || manualHours < 1 ) {
         alert("Please enter a valid number.");
         return;
     }
