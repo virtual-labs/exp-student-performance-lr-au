@@ -192,7 +192,6 @@ function getPercentile(arr, percentile) {
 }
 
 function predictManualEntry() {
-
     const manualHours = parseFloat(document.getElementById('manualHours').value);
     if (isNaN(manualHours) || manualHours < 1 || manualHours > 50) {
         alert("Please enter a valid number.");
@@ -204,14 +203,12 @@ function predictManualEntry() {
     const { slope, intercept } = calculateLinearRegression(studyHours, scores);
     const predictedScore = (slope * manualHours + intercept).toFixed(2);
 
-    // Adding manual input for tracking
     studyHours.push(manualHours);
-    scores.push(parseFloat(predictedScore));
+    scores.push(parseFloat(predictedScore)); 
 
-    // Generate predictions for the regression line
     const predictions = studyHours.map(hours => ({ x: hours, y: slope * hours + intercept }));
 
-    // Calculate MSE & RMSE using actual scores and predicted scores
+    // Calculate MSE & RMSE 
     const { mse, rmse } = calculateMSEAndRMSE(scores, predictions.map(p => p.y));
 
     loadDataset();
@@ -223,24 +220,29 @@ function predictManualEntry() {
                  = Predicted Score: ${predictedScore}`);
     logActivity(`MSE (Mean Squared Error): ${mse.toFixed(2)}`);
     logActivity(`RMSE (Root Mean Squared Error): ${rmse.toFixed(2)}`);
-
-
 }
 function plotManualEntryGraphHour(studyHours, actualScores, predictions = []) {
     const ctx = document.getElementById('predictionChart').getContext('2d');
 
-    // Destroy existing chart instance if present to prevent multiple layers
     if (chartInstance) {
         chartInstance.destroy();
     }
 
+    // Filter out the actual data point for the entered study hour
+    const filteredActualData = studyHours.map((h, i) => {
+        
+        if (i === studyHours.length - 1) {
+            return null; 
+        }
+        return { x: h, y: actualScores[i] };
+    }).filter(point => point !== null); // Remove null 
     chartInstance = new Chart(ctx, {
         type: 'scatter',
         data: {
             datasets: [
                 {
                     label: 'Actual Data',
-                    data: studyHours.map((h, i) => ({ x: h, y: actualScores[i] })),
+                    data: filteredActualData, 
                     backgroundColor: 'blue',
                     pointRadius: 5
                 },
@@ -253,10 +255,18 @@ function plotManualEntryGraphHour(studyHours, actualScores, predictions = []) {
                     fill: false,
                     pointRadius: 0,
                     borderWidth: 2
+                },
+                {
+                    label: 'Predicted Score',
+                    data: [{ x: studyHours[studyHours.length - 1], y: actualScores[actualScores.length - 1] }],
+                    backgroundColor: 'orange',
+                    pointRadius: 7,
+                    borderColor: 'orange'
                 }
             ]
         },
         options: {
+            responsive: true,
             scales: {
                 x: {
                     type: 'linear',
@@ -275,9 +285,9 @@ function plotManualEntryGraphHour(studyHours, actualScores, predictions = []) {
             }
         }
     });
- 
-}
 
+    
+}
 function plotManualEntryGraph(studyHours, actualScores, predictions = []) {
     const ctx = document.getElementById('predictionChart').getContext('2d');
 
