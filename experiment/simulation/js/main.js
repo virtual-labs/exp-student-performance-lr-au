@@ -24,7 +24,7 @@ let testScores = [];
 let studyHours = [];
 let scores = [];
 let chartInstance = null;
-
+document.querySelector(".card.manual-contaner").style.display = "none";
 loadDataset();
 plotManualEntryGraph(studyHours, scores);
 updateStatistics();
