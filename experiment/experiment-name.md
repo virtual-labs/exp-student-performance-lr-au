@@ -1,1 +1,1 @@
-## Predicting Student Performance Based on Study Hours Using Linear Regression
+## Student Performance Prediction Using Study Hours
