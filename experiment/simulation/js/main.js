@@ -25,24 +25,9 @@ let studyHours = [];
 let scores = [];
 let chartInstance = null;
 
-// const actualData = [
-//   { hours: 1, score: 20 },
-//   { hours: 2, score: 40 },
-//   { hours: 3, score: 60 },
-//   { hours: 4, score: 80 },
-//   { hours: 5, score: 100 },
-// ];
-
-// studyHours = actualData.map((d) => d.hours);
-// scores = actualData.map((d) => d.score);
-
-document.querySelector(".card.dataset-contaner").style.display = "none";
-document.querySelector(".card.manual-contaner").style.display = "none";
 loadDataset();
 plotManualEntryGraph(studyHours, scores);
 updateStatistics();
-logActivity("Graph Updated with Predefined Datasets");
-logActivity("Updated Summary Statistics");
 
 const fileInput = document.getElementById("fileInput");
 const csvUploadMessage = document.getElementById("csvUploadMessage");
@@ -63,7 +48,6 @@ function handleFileUpload(event) {
     csvUploadMessage.style.display = "none";
     return;
   }
-
   csvUploadMessage.style.display = "block";
   csvUploadMessage.textContent = "✅ CSV file uploaded!";
 
@@ -97,9 +81,11 @@ function parseCSV(csv) {
   });
 
   if (studyHours.length > 0) {
-    document.querySelector(".card.dataset-contaner").style.display = "block";
     loadDataset();
+    updateStatistics();
     logActivity("📁CSV file loaded successfully. Missing values removed.");
+    logActivity("Graph Updated with Uploaded Datasets");
+    logActivity("Updated Summary Statistics");
     plotManualEntryGraph(studyHours, scores);
     document.getElementById("predictBtn").style.display = "none";
     document.getElementById("splitDataBtn").style.display = "none";
@@ -198,7 +184,7 @@ function getPercentile(arr, percentile) {
 
 function predictManualEntry() {
   const manualHours = parseFloat(document.getElementById("manualHours").value);
-  if (isNaN(manualHours) || manualHours < 1 || manualHours > 50) {
+  if (isNaN(manualHours) || manualHours < 1) {
     alert("Please enter a valid number.");
     return;
   }
@@ -225,11 +211,11 @@ function predictManualEntry() {
   updateStatistics();
   plotManualEntryGraphHour(studyHours, scores, predictions);
 
-  logActivity(`Manual Entry: ${manualHours} study hours -> Predicted Score Calculation:
-                   (slope: ${slope.toFixed(
-                     2
-                   )} * ${manualHours}) + intercept: ${intercept.toFixed(2)}
-                   = Predicted Score: ${predictedScore}`);
+  logActivity(`Manual Entry: ${manualHours} study hours -> Predicted Score Calculation: 
+                 (slope: ${slope.toFixed(
+                   2
+                 )} * ${manualHours}) + intercept: ${intercept.toFixed(2)} 
+                 = Predicted Score: ${predictedScore}`);
   logActivity(`MSE (Mean Squared Error): ${mse.toFixed(2)}`);
   logActivity(`RMSE (Root Mean Squared Error): ${rmse.toFixed(2)}`);
 }
@@ -304,7 +290,6 @@ function plotManualEntryGraphHour(studyHours, actualScores, predictions = []) {
     },
   });
 }
-
 function plotManualEntryGraph(studyHours, actualScores, predictions = []) {
   const ctx = document.getElementById("predictionChart").getContext("2d");
 

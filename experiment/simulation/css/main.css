@@ -29,10 +29,6 @@ body {
   max-height: 220px;
   overflow-y: auto;
 }
-.table-container {
-  overflow-x: auto;
-  max-width: 100%;
-}
 
 .dataset-contaner {
   max-width: 410px;
@@ -91,9 +87,7 @@ body {
   font-size: 14px;
   color: green;
 }
-.d-flex {
-  margin-top: -15px;
-}
+
 #resetBtn {
   position: relative;
   top: -18px;
