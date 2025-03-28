@@ -39,15 +39,13 @@ Exploratory Data Analysis (EDA) helps in visualizing patterns, trends, and distr
 
 The simple linear regression model is trained using the training dataset. The model learns the best-fitting line by minimizing the difference between predicted values and actual outcomes — typically by minimizing the <b>Mean Squared Error (MSE)</b>.
 
-$$
-MSE = \frac{1}{n} \sum_{i=1}^{n} (Y_i - \hat{Y}_i)^2
-$$
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MSE = (1/n) ∑<sub>i=1</sub><sup>n</sup> (Y<sub>i</sub> - Ŷ<sub>i</sub>)<sup>2</sup>
 
 Where:
 
 <ul>
-  <li>$Y_i$: Actual value</li>
-  <li>$\hat{Y}_i $: Predicted value</li>
+  <li>Y<sub>i</sub>: Actual value</li>
+  <li>Ŷ<sub>i</sub>: Predicted value</li>
   <li>n: Number of observations</li>
 </ul>
 A lower MSE indicates a better fit of the model to the data.
