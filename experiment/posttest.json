@@ -79,7 +79,7 @@
       },
       "explanations": {
         "a": "Evaluation doesn’t involve modifying training data.",
-        "b": "Testing data helps assess the model’s generalization ability.",
+        "b": "Correct!Testing data helps assess the model’s generalization ability.",
         "c": "R-squared is a result, not something we directly increase during evaluation.",
         "d": "Feature scaling is part of preprocessing, not evaluation."
       },
