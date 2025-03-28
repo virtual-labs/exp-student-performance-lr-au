@@ -2,37 +2,88 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "This is a Sample Question 1?",
+      "question": "Which of the following best describes the purpose of linear regression?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "To cluster students based on performance",
+        "b": "To predict a categorical outcome from continuous data",
+        "c": "To estimate the relationship between an independent and a dependent variable ",
+        "d": "To remove outliers from a dataset"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "Clustering is an unsupervised learning technique, not regression.",
+        "b": "That describes classification; linear regression predicts continuous outcomes.",
+        "c": "Correct!Linear regression models the relationship between variables to make predictions.",
+        "d": "Removing outliers is a preprocessing step, not the goal of regression."
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "What does a high Mean Squared Error (MSE) value indicate about a regression model?",
+      "answers": {
+        "a": "The model predicts values accurately",
+        "b": "The regression line fits the data well",
+        "c": "The model has a lot of prediction errors",
+        "d": "The model has high R-squared value"
+      },
+      "explanations": {
+        "a": "High MSE means there's a large error between predicted and actual values.",
+        "b": "A low MSE would indicate a good fit.",
+        "c": "Correct!A high MSE means predictions deviate significantly from actual values.",
+        "d": "MSE and R² are related but not directly correlated in that way."
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "What does the error term (ε) represent in the regression equation?",
+      "answers": {
+        "a": "The slope of the regression line",
+        "b": "The difference between the actual and predicted values ",
+        "c": "The total number of students",
+        "d": "The final predicted value"
+      },
+      "explanations": {
+        "a": "The slope is b, not the error term.",
+        "b": "Correct!The error term accounts for the variation in Y not explained by X.",
+        "c": "ε has nothing to do with sample size.",
+        "d": "The predicted value is represented by Ŷ, not ε."
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "In the regression equation Y = a + bX + ε, what does 'a' represent?",
+      "answers": {
+        "a": "The exam score when study hours are zero",
+        "b": "The total number of observations",
+        "c": "The predicted score after one hour of study",
+        "d": "The error of the model"
+      },
+      "explanations": {
+        "a": "The intercept a gives the predicted value of Y when X = 0.",
+        "b": "That’s usually represented by n, not a.",
+        "c": "That would be a + b(1), not just a.",
+        "d": "The error is represented by ε, not a."
       },
       "correctAnswer": "a",
       "difficulty": "beginner"
     },
     {
-      "question": "This is a Sample Question 2?",
+      "question": "Why is it important to evaluate a regression model on a testing dataset?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "To adjust the training data",
+        "b": "To check how well the model performs on unseen data ",
+        "c": "To increase the value of R-squared",
+        "d": "To perform feature scaling"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "Evaluation doesn’t involve modifying training data.",
+        "b": "Testing data helps assess the model’s generalization ability.",
+        "c": "R-squared is a result, not something we directly increase during evaluation.",
+        "d": "Feature scaling is part of preprocessing, not evaluation."
       },
-      "correctAnswer": "c",
+      "correctAnswer": "b",
       "difficulty": "beginner"
     }
   ]

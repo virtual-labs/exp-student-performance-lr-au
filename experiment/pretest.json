@@ -2,37 +2,88 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "This is a Sample Question 1?",
+      "question": "What does the slope (b) in a linear regression model represent?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "The predicted exam score",
+        "b": "The average exam score",
+        "c": "The change in exam score per unit increase in study hours",
+        "d": "The error in prediction"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "The predicted exam score is the output Y, not the slope.",
+        "b": "The average score is a statistic from the dataset, not part of the regression equation.",
+        "c": "Correct!The slope (b) tells us how much the final score is expected to increase (or decrease) for each additional hour studied.",
+        "d": "The error is represented by ε, not the slope b."
       },
-      "correctAnswer": "a",
+      "correctAnswer": "c",
       "difficulty": "beginner"
     },
     {
-      "question": "This is a Sample Question 2?",
+      "question": "Which metric is used to measure the average squared difference between actual and predicted values?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "R-squared",
+        "b": "Mean Absolute Error",
+        "c": "Root Mean Squared Error",
+        "d": "Mean Squared Error"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "R-squared measures the proportion of variance explained, not error directly.",
+        "b": "MAE measures average absolute differences, not squared differences.",
+        "c": "RMSE is the square root of MSE, not the MSE itself.",
+        "d": "Correct!MSE measures the average of the squares of the errors between actual and predicted values."
+      },
+      "correctAnswer": "d",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "What is the role of the intercept (a) in the regression equation?",
+      "answers": {
+        "a": "It indicates the strength of correlation",
+        "b": "It is the error term",
+        "c": "It shows the exam score when study hours are zero",
+        "d": "It is the standard deviation of the model"
+      },
+      "explanations": {
+        "a": "Correlation is a separate statistical concept, not directly represented by the intercept.",
+        "b": "The error term is represented by ε, not the intercept a.",
+        "c": "Correct!The intercept is the expected value of Y (score) when X = 0 (no study hours).",
+        "d": "Standard deviation measures spread, unrelated to the intercept value."
       },
       "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "What is the purpose of using a testing dataset in model evaluation?",
+      "answers": {
+        "a": "To train the model better",
+        "b": "To visualize data distribution",
+        "c": "To assess model performance on unseen data ",
+        "d": "To remove outliers"
+      },
+      "explanations": {
+        "a": "The training dataset is used to train the model, not testing.",
+        "b": "While data visualization can use any data, this is not the main purpose of testing data.",
+        "c": "Correct!The testing set is used after training to see how well the model performs on new, unseen data.",
+        "d": "Outlier detection is part of data preprocessing, not testing."
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Why is it important to preprocess data before applying linear regression?",
+      "answers": {
+        "a": "To reduce the R-squared value",
+        "b": "To ensure the model learns from clean and accurate input",
+        "c": "To create more independent variables",
+        "d": "To remove the linear relationship from the data"
+      },
+      "explanations": {
+        "a": "The goal is to improve model accuracy, not reduce R².",
+        "b": "Correct!Preprocessing (handling missing values, removing outliers, etc.) ensures data quality and improves model performance.",
+        "c": "Preprocessing does not necessarily create new independent variables unless feature engineering is involved.",
+        "d": "Linear regression requires a linear relationship; removing it would harm model accuracy."
+      },
+      "correctAnswer": "b",
       "difficulty": "beginner"
     }
   ]
