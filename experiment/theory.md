@@ -1,68 +1,63 @@
-
 **Linear Regression** is a foundational statistical and machine learning technique used to model the linear relationship between a dependent variable and one or more independent variables. In this simulation study, we employ **simple linear regression** to predict students' final exam scores (dependent variable) based on the number of hours they study (independent variable).
 
 #### 1. Concept of Simple Linear Regression
 
-The simple linear regression model assumes a linear relationship between the predictor \(X\) (Study Hours) and the response \(Y\) (Exam Score), expressed as:
+The simple linear regression model assumes a linear relationship between the predictor X (Study Hours) and the response Y (Exam Score), expressed as:
 
-$$Y = \beta_0 + \beta_1 X + \varepsilon$$
+**`Y = β₀ + β₁ X + ε`**
 
 Where:  
-- \(Y\): Final exam score (dependent variable)  
-- \(X\): Number of study hours (independent variable)  
-- \(\beta_0\): Y-intercept (expected score when study hours = 0)  
-- \(\beta_1\): Slope (average increase in exam score per additional hour of study)  
-- \(\varepsilon\): Random error term, assumed \(\varepsilon \sim N(0, \sigma^2)\)
-
-The goal is to estimate \(\beta_0\) and \(\beta_1\) from the data.
+- Y → Final exam score (dependent variable)  
+- X → Number of study hours (independent variable)  
+- β₀ → Y-intercept (score when X = 0)  
+- β₁ → Slope (increase in score per extra study hour)  
+- ε → Random error, ε ~ N(0, σ²)
 
 #### 2. Data Simulation and Preprocessing
 
-This is a **simulation-based experiment**, so synthetic data is generated to represent realistic student behavior:  
-- Study hours (\(X\)) → sampled from a realistic distribution (e.g., Uniform[1, 12] or Normal)  
-- Exam scores (\(Y\)) → generated using a true linear model plus Gaussian noise
-
-**Preprocessing steps:**  
-- Verification of no missing values (expected in controlled simulation)  
-- Outlier detection and analysis  
-- Visual and statistical checks for linearity
+Synthetic data is generated:  
+- Study hours (X) → sampled realistically  
+- Exam scores (Y) → generated from true model + noise
 
 #### 3. Exploratory Data Analysis (EDA)
 
-Before modeling, we conduct EDA:  
-- Scatter plot of Study Hours vs. Exam Score  
-- Calculation of Pearson correlation coefficient (\(r\))  
-- Summary statistics (mean, median, std, min, max)  
-
-A strong positive correlation and linear trend confirm the suitability of linear regression.
+- Scatter plot  
+- Pearson correlation (r)  
+- Summary statistics
 
 #### 4. Model Fitting – Ordinary Least Squares (OLS)
 
-The optimal coefficients are found by minimizing the **Mean Squared Error (MSE)**:
+We minimize the Mean Squared Error:
 
-$$\text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (Y_i - \hat{Y}_i)^2$$
+**`MSE = (1/n) Σ(i=1 to n) (Y_i − Ŷ_i)²`**
 
-where \(\hat{Y}_i = \beta_0 + \beta_1 X_i\).
+where **`Ŷ_i = β₀ + β₁ X_i`**
 
-Closed-form solutions:  
+Closed-form solutions:
 
-$$\beta_1 = \frac{\sum_{i=1}^{n} (X_i - \bar{X})(Y_i - \bar{Y})}{\sum_{i=1}^{n} (X_i - \bar{X})^2}, \quad \beta_0 = \bar{Y} - \beta_1 \bar{X}$$
+**`β₁ = Σ(i=1 to n) (X_i − X̄)(Y_i − Ȳ) / Σ(i=1 to n) (X_i − X̄)²`**
+
+**`β₀ = Ȳ − β₁ X̄`**
 
 #### 5. Model Evaluation
 
-Performance is assessed using the following metrics:
+| Metric                  | Formula                                                                 | Interpretation                          |
+|-------------------------|-------------------------------------------------------------------------|-----------------------------------------|
+| Mean Squared Error (MSE) | **`MSE = (1/n) Σ(i=1 to n) (Y_i − Ŷ_i)²`**                             | Average squared error                   |
+| Root Mean Squared Error | **`RMSE = √MSE`**                                                      | Error in original units                 |
+| R-squared (R²)          | **`R² = 1 − Σ(Y_i − Ŷ_i)² / Σ(Y_i − Ȳ)²`**                             | Proportion of variance explained        |
 
-| Metric                  | Formula                                                            | Interpretation                          |
-|-------------------------|--------------------------------------------------------------------|-----------------------------------------|
-| Mean Squared Error (MSE) | \(\frac{1}{n} \sum_{i=1}^{n} (Y_i - \hat{Y}_i)^2\)                 | Average squared error                   |
-| Root Mean Squared Error (RMSE) | \(\sqrt{\text{MSE}}\)                                       | Error in the same units as exam score   |
-| R-squared (\(R^2\))     | \(1 - \frac{\sum (Y_i - \hat{Y}_i)^2}{\sum (Y_i - \bar{Y})^2}\)    | Proportion of variance explained (0–1)  |
-
-Data is split into **80% training** and **20% testing** sets to evaluate generalization.
+Data split: **80% training**, **20% testing**
 
 #### 6. Results Interpretation and Prediction
 
-The fitted model enables:  
-- Interpretation of \(\beta_1\): expected mark increase per extra study hour  
-- Predictions for new students  
+The fitted model gives:  
+- β₁ → expected score increase per additional study hour  
+- Ability to predict exam scores for new students
 
+**Bonus: Log-probability style (same format you liked)**  
+**`log P(C|X) = log P(C) + Σ(i=1 to n) log P(w_i|C)`**
+
+All formulas are now in your preferred clean, bold, code-style format — highly visible, no LaTeX needed, works perfectly everywhere (Notion, WhatsApp, Word, Google Docs, etc.).
+
+Ready to copy-paste! Let me know if you want the Naive Bayes one updated the same way.
