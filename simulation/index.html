@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Hours Predictor</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="./css/main.css">
+
+</head>
+
+<body>
+
+    <!-- <div class="logo-container">
+        <img src="./images/logo.png" alt="Amrita Vishwa Vidyapeetham Logo">
+    </div> -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="card dataset-contaner">
+                    <h4 class="disable"></h4>
+                    <h4 id="predefinedHide">Dataset</h4>
+                    <div class="table-container">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Study Hours</th>
+                                    <th>Score</th>
+                                </tr>
+                            </thead>
+                            <tbody id="datasetTable">
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="card upload-container">
+                    <button class="btn btn-primary" onclick="document.getElementById('fileInput').click();">
+                        <b>Upload Dataset</b>
+                    </button><br>
+                    <input type="file" id="fileInput" style="display:none;" accept=".csv" />
+                    <p class="small-text">Upload a CSV file with "Hours" and "Scores" columns</p>
+                    <a href="./students_scores.csv" id="sampleCSV" class="btn btn-outline-secondary small-btn mb-3">
+                        ⬇ Sample Dataset
+                    </a>
+                    <div id="csvUploadMessage" class="alert-success " style="display: none;">
+
+                    </div>
+                    <button class="btn btn-primary w-100 mb-2" id="dataCleanBtn">🧹 Clean Data</button>
+                    <button class="btn btn-primary w-100 mb-2" id="splitDataBtn">✂️ Split Data (80% Train, 20%
+                        Test)</button>
+                    <button class="btn btn-primary w-100" id="predictBtn">🔮Train and Plot Regression</button>
+                </div>
+                <div class="card manual-contaner">
+                    <h5>📘 Predict Score</h5>
+
+                    <input type="number" class="form-control mb-2" id="manualHours" placeholder="Enter Study Hours">
+
+                    <button class="btn btn-primary w-100" id="manualPredictBtn">🎯 Add &
+                        Predict Score</button>
+                </div>
+                <button class="btn btn-danger mt-3 w-100 reset-btn" id="resetBtn">🔄 Reset All</button>
+            </div>
+
+            <div class="col-md-6">
+
+                <div class="card graph-container">
+                    <h4>📈  Study vs Score</h4>
+                    <canvas id="predictionChart"></canvas>
+                    <p class="text-muted">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The graph displays the
+                        relationship between study hours and scores.
+                    </p>
+                </div>
+                <div class="card summary-container">
+                    <h4>📊 Summary Statistics</h4>
+                    <p><strong>Total Records:</strong> <span id="totalRecords">0</span></p>
+                    <p><strong>Mean Study Hours:</strong> <span id="meanHours">0</span></p>
+                    <p><strong>Mean Score:</strong> <span id="meanScore">0</span></p>
+                </div>
+
+
+            </div>
+            <div class="col-lg-3">
+
+                <div class="card activity-log">
+                    <h4>📝 Activity Log</h4>
+                    <ul class="list-group" id="activityLog">
+                    </ul>
+                    <button class="btn btn-danger mt-3 w-100 clear-log" onclick="clearLog()">🗑 Clear Log</button>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <script src="./js/main.js"></script>
+<script src="../assets/js/iframeResize.js"></script>
+        
+        </body>
+
+</html>

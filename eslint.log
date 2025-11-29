@@ -1,0 +1,17 @@
+
+/home/runner/work/exp-student-performance-lr-au/exp-student-performance-lr-au/experiment/simulation/js/main.js
+  163:3   warning  'trainData' is not defined            no-undef
+  164:3   warning  'testData' is not defined             no-undef
+  166:16  warning  'trainData' is not defined            no-undef
+  167:17  warning  'trainData' is not defined            no-undef
+  168:15  warning  'testData' is not defined             no-undef
+  169:16  warning  'testData' is not defined             no-undef
+  172:36  warning  'trainData' is not defined            no-undef
+  172:77  warning  'testData' is not defined             no-undef
+  238:23  warning  'Chart' is not defined                no-undef
+  352:23  warning  'Chart' is not defined                no-undef
+  479:23  warning  'Chart' is not defined                no-undef
+  538:10  warning  'clearLog' is defined but never used  no-unused-vars
+
+✖ 12 problems (0 errors, 12 warnings)
+
