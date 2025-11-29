@@ -2,37 +2,105 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "This is a Sample Question 1?",
+      "question": "In the simple linear regression model Y = β0 + β1X + ε, what does the slope (β1) represent?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "The predicted exam score",
+        "b": "The average exam score of all students",
+        "c": "The average increase in exam score for each additional hour studied",
+        "d": "The random error added to the prediction"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "This refers to Y, not the slope.",
+        "b": "The average score is computed from data, not represented by β1.",
+        "c": "Correct! β1 represents how much the exam score changes for every additional hour studied.",
+        "d": "ε represents the random error, not β1."
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "What does the intercept (β0) indicate in the linear regression equation?",
+      "answers": {
+        "a": "The exam score when study hours are zero",
+        "b": "The variance of exam scores",
+        "c": "The strength of correlation between X and Y",
+        "d": "The error added to the model"
+      },
+      "explanations": {
+        "a": "Correct! β0 represents the expected score when X = 0.",
+        "b": "Variance is unrelated to the intercept.",
+        "c": "Correlation is not represented by β0.",
+        "d": "The error term is ε, not β0."
       },
       "correctAnswer": "a",
       "difficulty": "beginner"
     },
     {
-      "question": "This is a Sample Question 2?",
+      "question": "Which metric is used to measure the average squared error between predicted and actual exam scores?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "Standard deviation",
+        "b": "Root Mean Squared Error (RMSE)",
+        "c": "Mean Squared Error (MSE)",
+        "d": "R-squared"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "Standard deviation measures spread, not prediction error.",
+        "b": "RMSE is the square root of MSE, not the MSE itself.",
+        "c": "Correct! MSE measures the average squared difference between predicted and actual values.",
+        "d": "R-squared measures variance explained, not error."
       },
       "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Why do we split the dataset into training (80%) and testing (20%) sets?",
+      "answers": {
+        "a": "To visualize the scatter plot more clearly",
+        "b": "To check how well the model performs on unseen data",
+        "c": "To remove outliers from the dataset",
+        "d": "To increase the size of the dataset artificially"
+      },
+      "explanations": {
+        "a": "Visualization is not the reason for splitting data.",
+        "b": "Correct! Testing data helps evaluate model generalization.",
+        "c": "Outlier removal is part of preprocessing, not dataset splitting.",
+        "d": "Splitting does not increase dataset size."
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Which assumption must hold true for applying simple linear regression?",
+      "answers": {
+        "a": "There should be a linear relationship between study hours and exam score",
+        "b": "The dataset must contain more than 1000 rows",
+        "c": "Study hours must follow a normal distribution",
+        "d": "The exam scores must have no variance"
+      },
+      "explanations": {
+        "a": "Correct! Linear regression requires a linear relationship between X and Y.",
+        "b": "There is no such minimum dataset size requirement.",
+        "c": "Normality of X is not a strict requirement for simple linear regression.",
+        "d": "If scores have no variance, regression cannot be performed."
+      },
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Why is Exploratory Data Analysis (EDA) performed before fitting the regression model?",
+      "answers": {
+        "a": "To visually check if a linear trend exists between study hours and exam scores",
+        "b": "To automatically compute the regression coefficients β0 and β1",
+        "c": "To convert categorical variables into numerical values",
+        "d": "To remove the linear relationship from the data"
+      },
+      "explanations": {
+        "a": "Correct! EDA helps confirm linearity and understand the data.",
+        "b": "Coefficients are computed during model fitting, not EDA.",
+        "c": "This is preprocessing, not EDA.",
+        "d": "Regression requires a linear relationship; removing it is not useful."
+      },
+      "correctAnswer": "a",
       "difficulty": "beginner"
     }
   ]
