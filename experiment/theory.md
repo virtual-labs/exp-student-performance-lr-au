@@ -1,65 +1,68 @@
-### Theory
 
-<b>Linear Regression</b> is one of the most fundamental and widely used techniques in statistical modeling and machine learning. It helps in understanding the relationship between two continuous variables — typically one independent (predictor) variable and one dependent (target) variable. In the context of this experiment, we aim to explore how the number of hours a student studies influences their final exam score.
+**Linear Regression** is a foundational statistical and machine learning technique used to model the linear relationship between a dependent variable and one or more independent variables. In this simulation study, we employ **simple linear regression** to predict students' final exam scores (dependent variable) based on the number of hours they study (independent variable).
 
-### 1. Concept of Linear Regression
+#### 1. Concept of Simple Linear Regression
 
-Linear regression attempts to model the relationship between two variables by fitting a linear equation (a straight line) to the observed data. The general form of the linear regression equation is:
+The simple linear regression model assumes a linear relationship between the predictor \(X\) (Study Hours) and the response \(Y\) (Exam Score), expressed as:
 
-&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; <b> 𝑌=𝑎+𝑏𝑋+𝜀</b>
+$$Y = \beta_0 + \beta_1 X + \varepsilon$$
 
-Where:
+Where:  
+- \(Y\): Final exam score (dependent variable)  
+- \(X\): Number of study hours (independent variable)  
+- \(\beta_0\): Y-intercept (expected score when study hours = 0)  
+- \(\beta_1\): Slope (average increase in exam score per additional hour of study)  
+- \(\varepsilon\): Random error term, assumed \(\varepsilon \sim N(0, \sigma^2)\)
 
-  <ul>
-    <li>Y: Dependent variable (Final Exam Score)</li>
-    <li>X: Independent variable (Study Hours)</li>
-    <li>a: Intercept of the regression line (value of Y when X = 0)</li>
-    <li>b: Slope of the regression line (indicates how much Y changes for a unit change in X)</li>
-    <li>ε: Error term (represents the variability in Y not explained by X)</li>
-  </ul>
-  
- ### 2. Data Collection and Preprocessing 
- Before fitting a regression model, it is essential to gather accurate and representative data. In this simulation, the dataset consists of study hours (X) and 
- corresponding final exam scores (Y) for a number of students. Data preprocessing includes:
- <ul>
-   <li>Handling missing or null values</li>
-   <li>Identifying and removing outliers</li>
-   <li>Normalizing or standardizing values if needed</li>
- </ul>
- 
-### 3. Data Exploration
-Exploratory Data Analysis (EDA) helps in visualizing patterns, trends, and distributions in the data. Common techniques include:
-<ul>
-  <li>Scatter plots to view the relationship between X and Y</li>
-  <li>Summary statistics (mean, median, standard deviation)</li>
-  <li>Correlation analysis to quantify the strength of association</li>
-</ul>
+The goal is to estimate \(\beta_0\) and \(\beta_1\) from the data.
 
-### 4. Model Building
+#### 2. Data Simulation and Preprocessing
 
-The simple linear regression model is trained using the training dataset. The model learns the best-fitting line by minimizing the difference between predicted values and actual outcomes — typically by minimizing the <b>Mean Squared Error (MSE)</b>.
+This is a **simulation-based experiment**, so synthetic data is generated to represent realistic student behavior:  
+- Study hours (\(X\)) → sampled from a realistic distribution (e.g., Uniform[1, 12] or Normal)  
+- Exam scores (\(Y\)) → generated using a true linear model plus Gaussian noise
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MSE = (1/n) ∑<sub>i=1</sub><sup>n</sup> (Y<sub>i</sub> - Ŷ<sub>i</sub>)<sup>2</sup>
+**Preprocessing steps:**  
+- Verification of no missing values (expected in controlled simulation)  
+- Outlier detection and analysis  
+- Visual and statistical checks for linearity
 
-Where:
+#### 3. Exploratory Data Analysis (EDA)
 
-<ul>
-  <li>Y<sub>i</sub>: Actual value</li>
-  <li>Ŷ<sub>i</sub>: Predicted value</li>
-  <li>n: Number of observations</li>
-</ul>
-A lower MSE indicates a better fit of the model to the data.
+Before modeling, we conduct EDA:  
+- Scatter plot of Study Hours vs. Exam Score  
+- Calculation of Pearson correlation coefficient (\(r\))  
+- Summary statistics (mean, median, std, min, max)  
 
-### 5. Model Evaluation
+A strong positive correlation and linear trend confirm the suitability of linear regression.
 
-After training, the model is evaluated on a testing dataset that was not used during training. This helps in assessing how well the model generalizes to new, unseen data. Performance metrics used include:
+#### 4. Model Fitting – Ordinary Least Squares (OLS)
 
-<ul>
-  <li><b>Mean Squared Error (MSE)</b></li>
-  <li><b>Root Mean Squared Error (RMSE)</b></li>
-  <li><b>Mean Squared Error (MSE)</b></li>
-</ul>
+The optimal coefficients are found by minimizing the **Mean Squared Error (MSE)**:
 
-### 6. Interpretation
+$$\text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (Y_i - \hat{Y}_i)^2$$
 
-Once the model is evaluated, it can be used to make predictions. For example, if a student studies for a certain number of hours, the model can predict their likely exam score. However, it is important to remember that linear regression assumes a linear relationship and may not capture complex patterns.
+where \(\hat{Y}_i = \beta_0 + \beta_1 X_i\).
+
+Closed-form solutions:  
+
+$$\beta_1 = \frac{\sum_{i=1}^{n} (X_i - \bar{X})(Y_i - \bar{Y})}{\sum_{i=1}^{n} (X_i - \bar{X})^2}, \quad \beta_0 = \bar{Y} - \beta_1 \bar{X}$$
+
+#### 5. Model Evaluation
+
+Performance is assessed using the following metrics:
+
+| Metric                  | Formula                                                            | Interpretation                          |
+|-------------------------|--------------------------------------------------------------------|-----------------------------------------|
+| Mean Squared Error (MSE) | \(\frac{1}{n} \sum_{i=1}^{n} (Y_i - \hat{Y}_i)^2\)                 | Average squared error                   |
+| Root Mean Squared Error (RMSE) | \(\sqrt{\text{MSE}}\)                                       | Error in the same units as exam score   |
+| R-squared (\(R^2\))     | \(1 - \frac{\sum (Y_i - \hat{Y}_i)^2}{\sum (Y_i - \bar{Y})^2}\)    | Proportion of variance explained (0–1)  |
+
+Data is split into **80% training** and **20% testing** sets to evaluate generalization.
+
+#### 6. Results Interpretation and Prediction
+
+The fitted model enables:  
+- Interpretation of \(\beta_1\): expected mark increase per extra study hour  
+- Predictions for new students  
+

@@ -4,86 +4,103 @@
     {
       "question": "Which of the following best describes the purpose of linear regression?",
       "answers": {
-        "a": "To cluster students based on performance",
-        "b": "To predict a categorical outcome from continuous data",
-        "c": "To estimate the relationship between an independent and a dependent variable ",
-        "d": "To remove outliers from a dataset"
+        "a": "To group data points into clusters",
+        "b": "To model the linear relationship between a predictor and a response variable",
+        "c": "To classify data into categories",
+        "d": "To remove noisy data points"
       },
       "explanations": {
-        "a": "Clustering is an unsupervised learning technique, not regression.",
-        "b": "That describes classification; linear regression predicts continuous outcomes.",
-        "c": "Correct!Linear regression models the relationship between variables to make predictions.",
-        "d": "Removing outliers is a preprocessing step, not the goal of regression."
-      },
-      "correctAnswer": "c",
-      "difficulty": "beginner"
-    },
-    {
-      "question": "What does a high Mean Squared Error (MSE) value indicate about a regression model?",
-      "answers": {
-        "a": "The model predicts values accurately",
-        "b": "The regression line fits the data well",
-        "c": "The model has a lot of prediction errors",
-        "d": "The model has high R-squared value"
-      },
-      "explanations": {
-        "a": "High MSE means there's a large error between predicted and actual values.",
-        "b": "A low MSE would indicate a good fit.",
-        "c": "Correct!A high MSE means predictions deviate significantly from actual values.",
-        "d": "MSE and R² are related but not directly correlated in that way."
-      },
-      "correctAnswer": "c",
-      "difficulty": "beginner"
-    },
-    {
-      "question": "What does the error term (ε) represent in the regression equation?",
-      "answers": {
-        "a": "The slope of the regression line",
-        "b": "The difference between the actual and predicted values ",
-        "c": "The total number of students",
-        "d": "The final predicted value"
-      },
-      "explanations": {
-        "a": "The slope is b, not the error term.",
-        "b": "Correct!The error term accounts for the variation in Y not explained by X.",
-        "c": "ε has nothing to do with sample size.",
-        "d": "The predicted value is represented by Ŷ, not ε."
+        "a": "Clustering is an unsupervised learning method, not regression.",
+        "b": "Correct! Linear regression estimates how X affects Y using a linear relationship.",
+        "c": "Classification predicts categories, not continuous values.",
+        "d": "Noise removal is part of preprocessing, not regression."
       },
       "correctAnswer": "b",
       "difficulty": "beginner"
     },
     {
-      "question": "In the regression equation Y = a + bX + ε, what does 'a' represent?",
+      "question": "What does a high Mean Squared Error (MSE) tell us about a regression model?",
       "answers": {
-        "a": "The exam score when study hours are zero",
-        "b": "The total number of observations",
-        "c": "The predicted score after one hour of study",
-        "d": "The error of the model"
+        "a": "The model’s predictions are far from actual values",
+        "b": "The regression line fits the data well",
+        "c": "The model has no error",
+        "d": "The model has perfect accuracy"
       },
       "explanations": {
-        "a": "The intercept a gives the predicted value of Y when X = 0.",
-        "b": "That’s usually represented by n, not a.",
-        "c": "That would be a + b(1), not just a.",
-        "d": "The error is represented by ε, not a."
+        "a": "Correct! A high MSE means large differences between predicted and real values.",
+        "b": "A good fit would have low MSE.",
+        "c": "High MSE means the opposite—high error.",
+        "d": "Perfect accuracy is unrealistic and would result in MSE = 0."
       },
       "correctAnswer": "a",
       "difficulty": "beginner"
     },
     {
-      "question": "Why is it important to evaluate a regression model on a testing dataset?",
+      "question": "In the equation Y = β0 + β1X + ε, what does the error term (ε) represent?",
       "answers": {
-        "a": "To adjust the training data",
-        "b": "To check how well the model performs on unseen data ",
-        "c": "To increase the value of R-squared",
-        "d": "To perform feature scaling"
+        "a": "The part of Y explained by X",
+        "b": "Random variation in Y not captured by the linear model",
+        "c": "The slope of the regression line",
+        "d": "The predicted value of Y"
       },
       "explanations": {
-        "a": "Evaluation doesn’t involve modifying training data.",
-        "b": "Correct!Testing data helps assess the model’s generalization ability.",
-        "c": "R-squared is a result, not something we directly increase during evaluation.",
-        "d": "Feature scaling is part of preprocessing, not evaluation."
+        "a": "The explained part is β0 + β1X.",
+        "b": "Correct! ε represents noise or unexplained variation.",
+        "c": "β1 is the slope.",
+        "d": "Ŷ is the predicted value, not ε."
       },
       "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "What does the intercept (β0) represent in a simple linear regression model?",
+      "answers": {
+        "a": "The predicted value of Y when X = 0",
+        "b": "The slope of the line",
+        "c": "The total number of observations",
+        "d": "The variability in the dependent variable"
+      },
+      "explanations": {
+        "a": "Correct! β0 tells us the expected value of Y when X is 0.",
+        "b": "β1 is the slope, not β0.",
+        "c": "The number of observations is n, not β0.",
+        "d": "Variability is measured by variance or standard deviation."
+      },
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Why do we perform Exploratory Data Analysis (EDA) before fitting the regression model?",
+      "answers": {
+        "a": "To check whether a linear trend exists between study hours and exam scores",
+        "b": "To automatically calculate the regression coefficients",
+        "c": "To split the dataset into training and testing sets",
+        "d": "To remove the need for preprocessing"
+      },
+      "explanations": {
+        "a": "Correct! EDA helps visually confirm linearity, an important assumption.",
+        "b": "Coefficients are calculated during model fitting.",
+        "c": "Dataset splitting is done separately.",
+        "d": "EDA does not replace preprocessing."
+      },
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "What does a high R-squared (R²) value indicate about a regression model?",
+      "answers": {
+        "a": "The model explains a large portion of the variation in the data",
+        "b": "The model has a high error term",
+        "c": "The regression line is horizontal",
+        "d": "The training data contains no noise"
+      },
+      "explanations": {
+        "a": "Correct! High R² means the model explains most of the variability in Y.",
+        "b": "High error corresponds to low R².",
+        "c": "A horizontal line means no relationship.",
+        "d": "Noise can still exist even if R² is high."
+      },
+      "correctAnswer": "a",
       "difficulty": "beginner"
     }
   ]

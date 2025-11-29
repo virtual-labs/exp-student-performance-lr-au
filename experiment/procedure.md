@@ -1,4 +1,4 @@
-### Procedure
+
 
 Step 1 : Click the "Upload" button to upload a CSV file containing "Hours" and "Scores" columns.
 

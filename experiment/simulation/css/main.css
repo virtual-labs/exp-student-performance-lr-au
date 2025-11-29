@@ -16,6 +16,7 @@ body {
 }
 
 .container {
+  margin-top: 80px;
   max-width: 1450px;
 }
 
@@ -97,6 +98,7 @@ body {
 }
 .small-text {
   position: relative;
+  margin-bottom: 20px;
   font-size: 12px;
   line-height: 1.2;
 }
